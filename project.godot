@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="DaydreamProject"
-run/main_scene="uid://d1r3ymhubxgji"
+run/main_scene="uid://dvbfa36bpvtth"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
