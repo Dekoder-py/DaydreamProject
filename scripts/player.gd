@@ -8,8 +8,8 @@ const HEART_HALF = preload("uid://cmjuvnk6nc62u")
 const HEART_EMPTY = preload("uid://btvkx1io5xfbf")
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 600.0
+const JUMP_VELOCITY = -900.0
 var health: float = 5 
 var can_shoot := true
 
