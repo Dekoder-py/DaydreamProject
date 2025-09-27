@@ -6,12 +6,13 @@
 [ext_resource type="AudioStream" uid="uid://c8ffi1umtp2gt" path="res://assets/death.wav" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(134, 130)
+size = Vector2(58, 130)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_g2els")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.453125, 1)
 texture = ExtResource("2_qhqgy")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
