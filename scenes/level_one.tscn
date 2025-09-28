@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://d1r3ymhubxgji"]
+[gd_scene load_steps=9 format=4 uid="uid://d1r3ymhubxgji"]
 
 [ext_resource type="PackedScene" uid="uid://becdtkvp0qkta" path="res://scenes/killzone.tscn" id="1_5rfim"]
 [ext_resource type="PackedScene" uid="uid://bbqret6bimjuv" path="res://scenes/player.tscn" id="1_cd1xg"]
+[ext_resource type="Script" uid="uid://cw7ajg3j0hr1y" path="res://scripts/level_one.gd" id="1_r4wdr"]
 [ext_resource type="Texture2D" uid="uid://d31t2qq7o2kbp" path="res://assets/contryside tilemap.png" id="2_843q2"]
 [ext_resource type="PackedScene" uid="uid://cmu2clkq2r62l" path="res://scenes/hud.tscn" id="2_t18mc"]
 
@@ -691,6 +692,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5rfim")
 
 [node name="LevelOne" type="Node2D"]
+script = ExtResource("1_r4wdr")
 
 [node name="Killzone" parent="." instance=ExtResource("1_5rfim")]
 
