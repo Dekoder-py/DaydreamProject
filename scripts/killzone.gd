@@ -1,6 +1,5 @@
 extends Area2D
 
-@onready var timer: Timer = $Timer
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 
 signal player_in_zone
