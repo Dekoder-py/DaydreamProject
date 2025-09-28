@@ -104,7 +104,7 @@ position = Vector2(1880, 422)
 [node name="Enemy2" parent="." instance=ExtResource("7_y8ti4")]
 position = Vector2(3162, 282)
 
-[node name="HeartItem" parent="." instance=ExtResource("8_astit")]
+[node name="HeartItem" parent="." groups=["heart_items"] instance=ExtResource("8_astit")]
 position = Vector2(2419, 357)
 
 [editable path="HUD"]
