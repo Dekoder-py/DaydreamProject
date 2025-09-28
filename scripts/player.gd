@@ -25,7 +25,7 @@ var can_shoot := true
 
 func shoot(direction):
 	var bullet = BULLET.instantiate()
-	bullet.position = position + Vector2(150 * direction, 0)
+	bullet.position = position + Vector2(80 * direction, 0)
 	bullet.direction = direction
 	get_parent().add_child(bullet)
 	
