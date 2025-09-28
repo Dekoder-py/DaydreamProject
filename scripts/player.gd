@@ -4,8 +4,12 @@ extends CharacterBody2D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const HEART_HALF = preload("uid://cmjuvnk6nc62u")
+const HEART_EMPTY = preload("uid://btvkx1io5xfbf")
+
+
+const SPEED = 600.0
+const JUMP_VELOCITY = -900.0
 var health: float = 5 
 var can_shoot := true
 
@@ -18,6 +22,30 @@ func shoot():
 func damage_self(damage: float):
 	health -= damage
 	print("Health: ", health)
+	
+	if health == 4:
+		$"../HUD/HeartFive".texture = HEART_EMPTY
+	if health == 3:
+		$"../HUD/HeartFour".texture = HEART_EMPTY
+	if health == 2:
+		$"../HUD/HeartThree".texture = HEART_EMPTY
+	if health == 1:
+		$"../HUD/HeartTwo".texture = HEART_EMPTY
+	if health == 0:
+		$"../HUD/HeartOne".texture = HEART_EMPTY
+	
+	
+	if health == 4.5:
+		$"../HUD/HeartFive".texture = HEART_HALF
+	if health == 3.5:
+		$"../HUD/HeartFour".texture = HEART_HALF
+	if health == 2.5:
+		$"../HUD/HeartThree".texture = HEART_HALF
+	if health == 1.5:
+		$"../HUD/HeartTwo".texture = HEART_HALF	
+	if health == 0.5:
+		$"../HUD/HeartOne".texture = HEART_HALF	
+	
 	if health <= 0:
 		death_sound.play()
 		get_tree().reload_current_scene()
@@ -28,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and !is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		jump_sound.play()
 		

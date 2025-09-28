@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1r3ymhubxgji"]
+[gd_scene load_steps=3 format=3 uid="uid://d1r3ymhubxgji"]
 
 [ext_resource type="PackedScene" uid="uid://bbqret6bimjuv" path="res://scenes/player.tscn" id="1_cd1xg"]
+[ext_resource type="PackedScene" uid="uid://cmu2clkq2r62l" path="res://scenes/hud.tscn" id="2_t18mc"]
 
 [node name="LevelOne" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("2_t18mc")]
 
 [node name="Midground" type="TileMapLayer" parent="."]
 
@@ -12,3 +15,5 @@ collision_enabled = false
 
 [node name="Player" parent="." instance=ExtResource("1_cd1xg")]
 position = Vector2(207, 138)
+
+[editable path="HUD"]
