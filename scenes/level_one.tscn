@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=4 uid="uid://d1r3ymhubxgji"]
+[gd_scene load_steps=8 format=4 uid="uid://d1r3ymhubxgji"]
 
+[ext_resource type="PackedScene" uid="uid://becdtkvp0qkta" path="res://scenes/killzone.tscn" id="1_5rfim"]
 [ext_resource type="PackedScene" uid="uid://bbqret6bimjuv" path="res://scenes/player.tscn" id="1_cd1xg"]
 [ext_resource type="Texture2D" uid="uid://d31t2qq7o2kbp" path="res://assets/contryside tilemap.png" id="2_843q2"]
 [ext_resource type="PackedScene" uid="uid://cmu2clkq2r62l" path="res://scenes/hud.tscn" id="2_t18mc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r4wdr"]
+distance = -611.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5rfim"]
 texture = ExtResource("2_843q2")
@@ -687,6 +691,11 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5rfim")
 
 [node name="LevelOne" type="Node2D"]
+
+[node name="Killzone" parent="." instance=ExtResource("1_5rfim")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_r4wdr")
 
 [node name="HUD" parent="." instance=ExtResource("2_t18mc")]
 
