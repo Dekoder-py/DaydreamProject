@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://mjwf32bjska0"]
+
+[ext_resource type="Script" uid="uid://fd3ci08pe65x" path="res://scripts/credits.gd" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://dxsillpj8pav5" path="res://scripts/return_to_main.gd" id="2_2ckv8"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_0bpdh")
+
+[node name="CreditsText" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 60
+text = "Art / Assets: C.H.
+Level Design: Rilzz
+Scripting: Kyle"
+
+[node name="ReturnToMain" type="Button" parent="."]
+offset_right = 740.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+script = ExtResource("2_2ckv8")
+
+[connection signal="pressed" from="ReturnToMain" to="ReturnToMain" method="_on_pressed"]

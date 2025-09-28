@@ -1,29 +1,32 @@
 [gd_scene load_steps=7 format=3 uid="uid://bbqret6bimjuv"]
 
 [ext_resource type="Script" uid="uid://grdpg4llu8f4" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://cj3ych3woygbm" path="res://icon.svg" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bwqoacn61hhf0" path="res://assets/robot player.png" id="2_dqkch"]
 [ext_resource type="AudioStream" uid="uid://c5yuab7s5qjya" path="res://assets/jump.wav" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://c8ffi1umtp2gt" path="res://assets/death.wav" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(58, 130)
+size = Vector2(163, 211.875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
-size = Vector2(60, 132)
+size = Vector2(178.15625, 183.59375)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(0.8, 0.8)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_g2els")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.453125, 1)
-texture = ExtResource("2_qhqgy")
+texture = ExtResource("2_dqkch")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(4.499999, 23.999996)
+scale = Vector2(0.79999995, 0.79999995)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Camera" type="Camera2D" parent="."]
+scale = Vector2(0.8, 0.8)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
@@ -38,9 +41,12 @@ one_shot = true
 stream = ExtResource("4_dqkch")
 
 [node name="EnemyDetector2000" type="Area2D" parent="."]
+scale = Vector2(0.8, 0.8)
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector2000"]
+position = Vector2(2.5125036, 7.812504)
+scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_qlg0r")
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

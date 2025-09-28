@@ -25,7 +25,7 @@ var can_shoot := true
 
 func shoot(direction):
 	var bullet = BULLET.instantiate()
-	bullet.position = position + Vector2(150 * direction, 0)
+	bullet.position = position + Vector2(80 * direction, 0)
 	bullet.direction = direction
 	get_parent().add_child(bullet)
 	
@@ -95,7 +95,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if facing == 1:
+	if facing == -1:
 		$Sprite.flip_h = true
 	else:
 		$Sprite.flip_h = false
