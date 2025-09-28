@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwnqxy2in0136"]
+
+[ext_resource type="Script" uid="uid://bvudujrdaviqw" path="res://scripts/how_to_play.gd" id="1_88ieg"]
+[ext_resource type="Script" uid="uid://dxsillpj8pav5" path="res://scripts/return_to_main.gd" id="1_d4i75"]
+
+[node name="HowToPlay" type="Node2D"]
+script = ExtResource("1_88ieg")
+
+[node name="InstructionText" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30
+text = "Controls:
+W / SPACE - Jump
+A - Left
+D - Right
+ENTER - Shoot
+
+Sacrifices must be made! 
+Firing your weapon deals half a heart of damage to you!"
+metadata/_edit_use_anchors_ = true
+
+[node name="ReturnToMain" type="Button" parent="."]
+offset_right = 740.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+script = ExtResource("1_d4i75")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ReturnToMain" to="ReturnToMain" method="_on_pressed"]
