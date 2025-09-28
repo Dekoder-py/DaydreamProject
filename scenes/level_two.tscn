@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://dxoxulthmmrdh"]
+[gd_scene load_steps=9 format=4 uid="uid://db458qfek18u"]
 
+[ext_resource type="Script" uid="uid://bv4f0oraj3g0s" path="res://scripts/level_two.gd" id="1_4yacq"]
 [ext_resource type="Texture2D" uid="uid://cj3ych3woygbm" path="res://icon.svg" id="1_8lyp7"]
 [ext_resource type="PackedScene" uid="uid://bbqret6bimjuv" path="res://scenes/player.tscn" id="1_dmexl"]
 [ext_resource type="PackedScene" uid="uid://cmu2clkq2r62l" path="res://scenes/hud.tscn" id="3_kkfyh"]
+[ext_resource type="PackedScene" uid="uid://becdtkvp0qkta" path="res://scenes/killzone.tscn" id="4_kkfyh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4yacq"]
 texture = ExtResource("1_8lyp7")
@@ -140,7 +142,11 @@ tile_size = Vector2i(20, 16)
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_4yacq")
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4yacq"]
+distance = -377.0
+
+[node name="LevelTwo" type="Node2D"]
+script = ExtResource("1_4yacq")
 
 [node name="collision layer" type="TileMapLayer" parent="."]
 position = Vector2(1, 59)
@@ -152,5 +158,10 @@ tile_set = SubResource("TileSet_mmtqo")
 [node name="Player" parent="." instance=ExtResource("1_dmexl")]
 
 [node name="HUD" parent="." instance=ExtResource("3_kkfyh")]
+
+[node name="Killzone" parent="." instance=ExtResource("4_kkfyh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_4yacq")
 
 [editable path="HUD"]

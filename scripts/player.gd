@@ -3,18 +3,27 @@ extends CharacterBody2D
 @onready var jump_sound: AudioStreamPlayer = $JumpSound
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var death_sound: AudioStreamPlayer = $DeathSound
+const BULLET = preload("uid://cicicymixxwo5")
+
 
 
 const HEART_HALF = preload("uid://cmjuvnk6nc62u")
 const HEART_EMPTY = preload("uid://btvkx1io5xfbf")
 
+var facing = 1
 
 const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
 var health: float = 5 
 var can_shoot := true
 
-func shoot():
+
+func shoot(direction):
+	var bullet = BULLET.instantiate()
+	bullet.position = position + Vector2(150 * direction, 0)
+	bullet.direction = direction
+	get_parent().add_child(bullet)
+	
 	damage_self(0.5)
 	can_shoot = false
 	shoot_timer.start()
@@ -65,18 +74,26 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		jump_sound.play()
-		
+	
+	
 	# handle shoot
 	if Input.is_action_just_pressed("shoot") and can_shoot:
-		shoot()
+		shoot(facing)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
+		facing = direction
+	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if facing == 1:
+		$Sprite.flip_h = true
+	else:
+		$Sprite.flip_h = false
 
 	move_and_slide()
 
@@ -85,4 +102,6 @@ func _physics_process(delta: float) -> void:
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
 
-	
+
+func _on_enemy_detector_2000_body_entered(_body: Node2D) -> void:
+	damage_self(1)

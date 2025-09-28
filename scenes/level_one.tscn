@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://becdtkvp0qkta" path="res://scenes/killzone.tscn" id="1_5rfim"]
 [ext_resource type="PackedScene" uid="uid://bbqret6bimjuv" path="res://scenes/player.tscn" id="1_cd1xg"]
+[ext_resource type="Script" uid="uid://cw7ajg3j0hr1y" path="res://scripts/level_one.gd" id="1_r4wdr"]
 [ext_resource type="Texture2D" uid="uid://d31t2qq7o2kbp" path="res://assets/contryside tilemap.png" id="2_843q2"]
 [ext_resource type="PackedScene" uid="uid://cmu2clkq2r62l" path="res://scenes/hud.tscn" id="2_t18mc"]
+[ext_resource type="PackedScene" uid="uid://dcpshxflolji0" path="res://scenes/level_up.tscn" id="6_bhu28"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_r4wdr"]
 distance = -611.0
@@ -67,6 +69,7 @@ tile_size = Vector2i(50, 50)
 sources/1 = SubResource("TileSetAtlasSource_r4wdr")
 
 [node name="LevelOne" type="Node2D"]
+script = ExtResource("1_r4wdr")
 
 [node name="Killzone" parent="." instance=ExtResource("1_5rfim")]
 
@@ -87,5 +90,8 @@ collision_enabled = false
 
 [node name="Player" parent="." instance=ExtResource("1_cd1xg")]
 position = Vector2(38, 366)
+
+[node name="LevelUp" parent="." instance=ExtResource("6_bhu28")]
+position = Vector2(404, 318)
 
 [editable path="HUD"]
