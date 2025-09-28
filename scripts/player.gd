@@ -89,6 +89,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if facing == 1:
+		$Sprite.flip_h = true
+	else:
+		$Sprite.flip_h = false
 
 	move_and_slide()
 
@@ -96,3 +101,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
+
+
+func _on_enemy_detector_2000_body_entered(_body: Node2D) -> void:
+	damage_self(1)
