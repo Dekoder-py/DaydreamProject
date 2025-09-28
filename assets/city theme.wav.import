@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxceqexe25513"
+path="res://.godot/imported/city theme.wav-6d8dfcdd86d8ae2e03e2f958b71a20e0.sample"
+
+[deps]
+
+source_file="res://assets/city theme.wav"
+dest_files=["res://.godot/imported/city theme.wav-6d8dfcdd86d8ae2e03e2f958b71a20e0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
