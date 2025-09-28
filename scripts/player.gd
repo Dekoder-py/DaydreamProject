@@ -6,6 +6,7 @@ extends CharacterBody2D
 const BULLET = preload("uid://cicicymixxwo5")
 
 
+
 const HEART_HALF = preload("uid://cmjuvnk6nc62u")
 const HEART_EMPTY = preload("uid://btvkx1io5xfbf")
 
@@ -15,6 +16,7 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -500.0
 var health: float = 5 
 var can_shoot := true
+
 
 func shoot(direction):
 	var bullet = BULLET.instantiate()
@@ -94,5 +96,3 @@ func _physics_process(delta: float) -> void:
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
-
-	
