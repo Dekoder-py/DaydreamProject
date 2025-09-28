@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cicicymixxwo5"]
+
+[ext_resource type="Texture2D" uid="uid://cj3ych3woygbm" path="res://icon.svg" id="1_y25gk"]
+[ext_resource type="Script" uid="uid://1x5rb3n2fgx3" path="res://scripts/bullet.gd" id="2_eoqba"]
+
+[node name="Bullet" type="Sprite2D"]
+scale = Vector2(1.0625, 0.27343747)
+texture = ExtResource("1_y25gk")
+script = ExtResource("2_eoqba")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

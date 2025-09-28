@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcpshxflolji0"]
+
+[ext_resource type="Texture2D" uid="uid://cj3ych3woygbm" path="res://icon.svg" id="1_sss2v"]
+[ext_resource type="Script" uid="uid://cufherfcdu85e" path="res://scripts/level_up.gd" id="1_wcxy0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wcxy0"]
+radius = 67.26812
+
+[node name="LevelUp" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_wcxy0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sss2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wcxy0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
