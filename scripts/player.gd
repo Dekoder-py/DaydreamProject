@@ -5,10 +5,15 @@ extends CharacterBody2D
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 const BULLET = preload("uid://cicicymixxwo5")
 
-
+@onready var heart_five = $"../HUD/HeartFive"
+@onready var heart_four = $"../HUD/HeartFour"
+@onready var heart_three = $"../HUD/HeartThree"
+@onready var heart_two = $"../HUD/HeartTwo"
+@onready var heart_one = $"../HUD/HeartOne"
 
 const HEART_HALF = preload("uid://cmjuvnk6nc62u")
 const HEART_EMPTY = preload("uid://btvkx1io5xfbf")
+const HEART_FULL = preload("uid://be6lh627frqkl")
 
 var facing = 1
 
@@ -34,27 +39,27 @@ func damage_self(damage: float):
 	print("Health: ", health)
 	
 	if health == 4:
-		$"../HUD/HeartFive".texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
 	if health == 3:
-		$"../HUD/HeartFour".texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
 	if health == 2:
-		$"../HUD/HeartThree".texture = HEART_EMPTY
+		heart_three.texture = HEART_EMPTY
 	if health == 1:
-		$"../HUD/HeartTwo".texture = HEART_EMPTY
+		heart_two.texture = HEART_EMPTY
 	if health == 0:
-		$"../HUD/HeartOne".texture = HEART_EMPTY
+		heart_one.texture = HEART_EMPTY
 	
 	
 	if health == 4.5:
-		$"../HUD/HeartFive".texture = HEART_HALF
+		heart_five.texture = HEART_HALF
 	if health == 3.5:
-		$"../HUD/HeartFour".texture = HEART_HALF
+		heart_four.texture = HEART_HALF
 	if health == 2.5:
-		$"../HUD/HeartThree".texture = HEART_HALF
+		heart_three.texture = HEART_HALF
 	if health == 1.5:
-		$"../HUD/HeartTwo".texture = HEART_HALF	
+		heart_two.texture = HEART_HALF	
 	if health == 0.5:
-		$"../HUD/HeartOne".texture = HEART_HALF	
+		heart_one.texture = HEART_HALF	
 	
 	if health <= 0:
 		# Play death sound
@@ -101,7 +106,88 @@ func _physics_process(delta: float) -> void:
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
+	
+func heal(amount: float) -> void:
+	health += amount
+	if health > 5:
+		health = 5
+	
+	if health == 5:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_FULL
+		heart_four.texture = HEART_FULL
+		heart_five.texture = HEART_FULL
+	if health == 4.5:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_FULL
+		heart_four.texture = HEART_FULL
+		heart_five.texture = HEART_HALF
+	if health == 4:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_FULL
+		heart_four.texture = HEART_FULL
+		heart_five.texture = HEART_EMPTY
+	if health == 3.5:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_FULL
+		heart_four.texture = HEART_HALF
+		heart_five.texture = HEART_EMPTY
+	if health == 3:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_FULL
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	if health == 2.5:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_HALF
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	if health == 2:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	if health == 1.5:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_HALF
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	if health == 1:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_EMPTY
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	if health == 0.5:
+		heart_one.texture = HEART_HALF
+		heart_two.texture = HEART_EMPTY
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	if health == 0:
+		heart_one.texture = HEART_EMPTY
+		heart_two.texture = HEART_EMPTY
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	
+	
+	print("Health: ", health)
+
+	
 
 
 func _on_enemy_detector_2000_body_entered(_body: Node2D) -> void:
 	damage_self(1)
+
+func _on_heart_picked_up():
+	print("Healing now, sig received")
+	heal(1)
