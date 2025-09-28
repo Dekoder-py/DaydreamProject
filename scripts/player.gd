@@ -4,12 +4,13 @@ extends CharacterBody2D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var death_sound: AudioStreamPlayer = $DeathSound
 
+
 const HEART_HALF = preload("uid://cmjuvnk6nc62u")
 const HEART_EMPTY = preload("uid://btvkx1io5xfbf")
 
 
-const SPEED = 600.0
-const JUMP_VELOCITY = -900.0
+const SPEED = 400.0
+const JUMP_VELOCITY = -500.0
 var health: float = 5 
 var can_shoot := true
 
@@ -47,8 +48,13 @@ func damage_self(damage: float):
 		$"../HUD/HeartOne".texture = HEART_HALF	
 	
 	if health <= 0:
+		# Play death sound
 		death_sound.play()
+
+		# After sound ends, start a short timer before reloadinng
+		await death_sound.finished
 		get_tree().reload_current_scene()
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -78,3 +84,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
+
+	
