@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cicicymixxwo5"]
+
+[ext_resource type="Texture2D" uid="uid://cj3ych3woygbm" path="res://icon.svg" id="1_y25gk"]
+[ext_resource type="Script" uid="uid://1x5rb3n2fgx3" path="res://scripts/bullet.gd" id="2_eoqba"]
+[ext_resource type="PackedScene" uid="uid://becdtkvp0qkta" path="res://scenes/killzone.tscn" id="2_l5glv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eoqba"]
+radius = 69.48569
+height = 138.97137
+
+[node name="Bullet" type="Sprite2D"]
+scale = Vector2(1.0625, 0.27343747)
+texture = ExtResource("1_y25gk")
+script = ExtResource("2_eoqba")
+
+[node name="Killzone" parent="." instance=ExtResource("2_l5glv")]
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CapsuleShape2D_eoqba")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
