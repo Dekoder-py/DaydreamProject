@@ -22,3 +22,7 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	pass
 	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	body.queue_free()
