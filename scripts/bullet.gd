@@ -9,6 +9,12 @@ const SPEED = 800
 func _ready() -> void:
 	if !direction:
 		direction = 1
+	
+	# flip sprite
+	if direction == -1:
+		flip_h = true
+	
+	# despawn timer
 	timer.start()
 
 
