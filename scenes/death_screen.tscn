@@ -1,30 +1,27 @@
-[gd_scene format=3 uid="uid://d2vsd2i3sy35b"]
+[gd_scene load_steps=2 format=3 uid="uid://d2vsd2i3sy35b"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" uid="uid://bn6f6tl7o80kg" path="res://scripts/start.gd" id="1_uyutr"]
+
+[node name="DeathScreen" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Label" type="Label" parent="."]
+[node name="DeathLabel" type="Label" parent="."]
 offset_left = -223.0
 offset_top = -274.0
 offset_right = 226.0
 offset_bottom = -186.0
 theme_override_font_sizes/font_size = 64
-text = "You died!!111!!"
+text = "You Died :("
 horizontal_alignment = 1
 
-[node name="retart button" type="Button" parent="."]
+[node name="RestartButton" type="Button" parent="."]
 offset_left = -58.0
 offset_top = 45.0
 offset_right = 55.0
 offset_bottom = 98.0
 theme_override_font_sizes/font_size = 32
-text = "restart"
+text = "Restart"
+script = ExtResource("1_uyutr")
 
-[node name="quit button" type="Button" parent="."]
-offset_left = -34.0
-offset_top = 122.0
-offset_right = 36.0
-offset_bottom = 175.0
-theme_override_font_sizes/font_size = 32
-text = "quit"
+[connection signal="pressed" from="RestartButton" to="RestartButton" method="_on_pressed"]
