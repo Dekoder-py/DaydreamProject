@@ -6,10 +6,10 @@
 [ext_resource type="AudioStream" uid="uid://c8ffi1umtp2gt" path="res://assets/death.wav" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(163, 211.875)
+size = Vector2(142.1875, 188.43752)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
-size = Vector2(178.15625, 183.59375)
+size = Vector2(220.91405, 228.51563)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.8, 0.8)
@@ -21,8 +21,8 @@ script = ExtResource("1_g2els")
 texture = ExtResource("2_dqkch")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(4.499999, 23.999996)
-scale = Vector2(0.79999995, 0.79999995)
+position = Vector2(-13.124997, 14.625)
+scale = Vector2(0.7999998, 0.7999998)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -45,7 +45,7 @@ scale = Vector2(0.8, 0.8)
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector2000"]
-position = Vector2(2.5125036, 7.812504)
+position = Vector2(-13.365631, -9.375001)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_qlg0r")
 
