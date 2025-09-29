@@ -9,6 +9,12 @@ const SPEED = 800
 func _ready() -> void:
 	if !direction:
 		direction = 1
+	
+	# flip sprite
+	if direction == -1:
+		flip_h = true
+	
+	# despawn timer
 	timer.start()
 
 
@@ -20,7 +26,7 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	pass
+	queue_free()
 	
 
 
