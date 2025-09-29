@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	pass
+	queue_free()
 	
 
 
