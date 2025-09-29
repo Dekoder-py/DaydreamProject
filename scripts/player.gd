@@ -67,7 +67,7 @@ func damage_self(damage: float):
 
 		# After sound ends, start a short timer before reloadinng
 		await death_sound.finished
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 
 
 func _physics_process(delta: float) -> void:
