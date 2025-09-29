@@ -38,28 +38,66 @@ func damage_self(damage: float):
 	health -= damage
 	print("Health: ", health)
 	
-	if health == 4:
-		heart_five.texture = HEART_EMPTY
-	if health == 3:
-		heart_four.texture = HEART_EMPTY
-	if health == 2:
-		heart_three.texture = HEART_EMPTY
-	if health == 1:
-		heart_two.texture = HEART_EMPTY
-	if health == 0:
-		heart_one.texture = HEART_EMPTY
-	
-	
 	if health == 4.5:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_FULL
+		heart_four.texture = HEART_FULL
 		heart_five.texture = HEART_HALF
-	if health == 3.5:
+	elif health == 4:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_FULL
+		heart_four.texture = HEART_FULL
+		heart_five.texture = HEART_EMPTY
+	elif health == 3.5:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_FULL
 		heart_four.texture = HEART_HALF
-	if health == 2.5:
+		heart_five.texture = HEART_EMPTY
+	elif health == 3:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_FULL
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	elif health == 2.5:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
 		heart_three.texture = HEART_HALF
-	if health == 1.5:
-		heart_two.texture = HEART_HALF	
-	if health == 0.5:
-		heart_one.texture = HEART_HALF	
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	elif health == 2:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_FULL
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	elif health == 1.5:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_HALF
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	elif health == 1:
+		heart_one.texture = HEART_FULL
+		heart_two.texture = HEART_EMPTY
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	elif health == 0.5:
+		heart_one.texture = HEART_HALF
+		heart_two.texture = HEART_EMPTY
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
+	elif health <= 0:
+		heart_one.texture = HEART_EMPTY
+		heart_two.texture = HEART_EMPTY
+		heart_three.texture = HEART_EMPTY
+		heart_four.texture = HEART_EMPTY
+		heart_five.texture = HEART_EMPTY
 	
 	if health <= 0:
 		# Play death sound
@@ -116,61 +154,61 @@ func heal(amount: float) -> void:
 		heart_three.texture = HEART_FULL
 		heart_four.texture = HEART_FULL
 		heart_five.texture = HEART_FULL
-	if health == 4.5:
+	elif health == 4.5:
 		heart_one.texture = HEART_FULL
 		heart_two.texture = HEART_FULL
 		heart_three.texture = HEART_FULL
 		heart_four.texture = HEART_FULL
 		heart_five.texture = HEART_HALF
-	if health == 4:
+	elif health == 4:
 		heart_one.texture = HEART_FULL
 		heart_two.texture = HEART_FULL
 		heart_three.texture = HEART_FULL
 		heart_four.texture = HEART_FULL
 		heart_five.texture = HEART_EMPTY
-	if health == 3.5:
+	elif health == 3.5:
 		heart_one.texture = HEART_FULL
 		heart_two.texture = HEART_FULL
 		heart_three.texture = HEART_FULL
 		heart_four.texture = HEART_HALF
 		heart_five.texture = HEART_EMPTY
-	if health == 3:
+	elif health == 3:
 		heart_one.texture = HEART_FULL
 		heart_two.texture = HEART_FULL
 		heart_three.texture = HEART_FULL
 		heart_four.texture = HEART_EMPTY
 		heart_five.texture = HEART_EMPTY
-	if health == 2.5:
+	elif health == 2.5:
 		heart_one.texture = HEART_FULL
 		heart_two.texture = HEART_FULL
 		heart_three.texture = HEART_HALF
 		heart_four.texture = HEART_EMPTY
 		heart_five.texture = HEART_EMPTY
-	if health == 2:
+	elif health == 2:
 		heart_one.texture = HEART_FULL
 		heart_two.texture = HEART_FULL
 		heart_three.texture = HEART_EMPTY
 		heart_four.texture = HEART_EMPTY
 		heart_five.texture = HEART_EMPTY
-	if health == 1.5:
+	elif health == 1.5:
 		heart_one.texture = HEART_FULL
 		heart_two.texture = HEART_HALF
 		heart_three.texture = HEART_EMPTY
 		heart_four.texture = HEART_EMPTY
 		heart_five.texture = HEART_EMPTY
-	if health == 1:
+	elif health == 1:
 		heart_one.texture = HEART_FULL
 		heart_two.texture = HEART_EMPTY
 		heart_three.texture = HEART_EMPTY
 		heart_four.texture = HEART_EMPTY
 		heart_five.texture = HEART_EMPTY
-	if health == 0.5:
+	elif health == 0.5:
 		heart_one.texture = HEART_HALF
 		heart_two.texture = HEART_EMPTY
 		heart_three.texture = HEART_EMPTY
 		heart_four.texture = HEART_EMPTY
 		heart_five.texture = HEART_EMPTY
-	if health == 0:
+	elif health <= 0:
 		heart_one.texture = HEART_EMPTY
 		heart_two.texture = HEART_EMPTY
 		heart_three.texture = HEART_EMPTY
