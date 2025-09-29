@@ -64,9 +64,7 @@ func damage_self(damage: float):
 	if health <= 0:
 		# Play death sound
 		death_sound.play()
-
-		# After sound ends, start a short timer before reloadinng
-		await death_sound.finished
+		await get_tree().create_timer(death_sound.stream.get_length()).timeout
 		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 
 
