@@ -12,5 +12,7 @@ func _ready() -> void:
 
 
 func _on_player_killed():
-	for i in range(5):
-		player.damage_self(1)
+	var player_health = player.health
+	while player_health > 0:
+		player.damage_self(0.5)
+		player_health = player.health
