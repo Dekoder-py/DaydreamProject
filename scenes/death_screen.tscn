@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2vsd2i3sy35b"]
+[gd_scene load_steps=3 format=3 uid="uid://d2vsd2i3sy35b"]
 
 [ext_resource type="Script" uid="uid://bn6f6tl7o80kg" path="res://scripts/start.gd" id="1_uyutr"]
+[ext_resource type="Script" uid="uid://dxsillpj8pav5" path="res://scripts/return_to_main.gd" id="2_dwo6e"]
 
 [node name="DeathScreen" type="Node2D"]
 
@@ -15,13 +16,31 @@ theme_override_font_sizes/font_size = 64
 text = "You Died :("
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="."]
-offset_left = -58.0
-offset_top = 45.0
-offset_right = 55.0
-offset_bottom = 98.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.5
+offset_top = -53.5
+offset_right = 157.5
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Restart"
 script = ExtResource("1_uyutr")
 
-[connection signal="pressed" from="RestartButton" to="RestartButton" method="_on_pressed"]
+[node name="MenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit to Main Menu"
+script = ExtResource("2_dwo6e")
+
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="VBoxContainer/RestartButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuButton" to="VBoxContainer/MenuButton" method="_on_pressed"]
