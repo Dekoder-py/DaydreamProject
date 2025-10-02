@@ -14,7 +14,7 @@ offset_top = 37.0
 offset_right = 229.0
 offset_bottom = 60.0
 theme_override_font_sizes/font_size = 40
-text = "DAYDREAM GAME!!!!!"
+text = "Virus Shooter"
 
 [node name="Button Container" type="VBoxContainer" parent="."]
 offset_right = 87.0
