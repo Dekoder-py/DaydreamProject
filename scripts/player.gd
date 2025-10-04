@@ -120,6 +120,8 @@ func _physics_process(delta: float) -> void:
 	# handle shoot
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		shoot(facing)
+		#i will put code here regarding shooting sfx when i have the 8-bit sfx website - riley
+		#shoot_sound.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -223,6 +225,8 @@ func heal(amount: float) -> void:
 
 func _on_enemy_detector_2000_body_entered(_body: Node2D) -> void:
 	damage_self(1)
+	#i will put code here regarding damage sfx when i have the 8-bit sfx website - riley
+	#hurt_sound.play()
 
 func _on_heart_picked_up():
 	print("Healing now, sig received")
