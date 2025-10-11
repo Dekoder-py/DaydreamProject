@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dxoxulthmmrdh"]
+[gd_scene load_steps=12 format=4 uid="uid://dxoxulthmmrdh"]
 
 [ext_resource type="Script" uid="uid://bv4f0oraj3g0s" path="res://scripts/level_two.gd" id="1_4yacq"]
 [ext_resource type="PackedScene" uid="uid://bbqret6bimjuv" path="res://scenes/player.tscn" id="1_dmexl"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://becdtkvp0qkta" path="res://scenes/killzone.tscn" id="4_kkfyh"]
 [ext_resource type="PackedScene" uid="uid://bcbtti50jfais" path="res://scenes/enemy.tscn" id="7_kp5rg"]
 [ext_resource type="PackedScene" uid="uid://c01cf15otvdwx" path="res://scenes/heart_item.tscn" id="7_l7e5k"]
+[ext_resource type="PackedScene" uid="uid://dcpshxflolji0" path="res://scenes/level_up.tscn" id="8_kp5rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4yacq"]
 texture = ExtResource("2_4yacq")
@@ -102,5 +103,9 @@ position = Vector2(2201, -145)
 
 [node name="Enemy4" parent="." instance=ExtResource("7_kp5rg")]
 position = Vector2(3447, -494)
+
+[node name="LevelUp" parent="." instance=ExtResource("8_kp5rg")]
+position = Vector2(3851, -519)
+next_scene = "res://scenes/end_screen.tscn"
 
 [editable path="HUD"]
